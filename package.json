@@ -1,0 +1,17 @@
+{
+  "name": "devserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "dependencies": {
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.3",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

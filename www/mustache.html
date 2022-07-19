@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>mustache - 模板引擎 - {{}}</h1>
+		<div id="container"></div>
+		<script src="/xuni/bundle.js"></script>
+		<script>
+			// 模板字符串
+			var templateStr = `
+		        <div>
+		            <ul>
+		                {{#students}}
+		                <li class="myli">
+		                    学生{{name}}的爱好是
+		                    <ol>
+		                        {{#hobbies}}
+		                        <li>{{.}}</li>
+		                        {{/hobbies}}
+		                    </ol>
+		                </li>
+		                {{/students}}
+		            </ul>
+		        </div>
+		    `;
+			// 数据
+			var data = {
+				students: [{
+						'name': '小明',
+						'hobbies': ['编程', '游泳']
+					},
+					{
+						'name': '小红',
+						'hobbies': ['看书', '弹琴', '画画']
+					},
+					{
+						'name': '小强',
+						'hobbies': ['锻炼']
+					}
+				]
+			};
+
+			var templateStr2 = `有个小孩叫{{name}}，年龄{{age}},有个朋友叫{{friend.name}}`;
+			var data2 = {
+				name: '小明',
+				age: 12,
+				friend: {
+					name: '小景'
+				}
+			}
+			// 调用render
+			var domStr = SSG_TemplateEngine.render(templateStr, data);
+			// 渲染上树
+			var container = document.getElementById('container');
+			container.innerHTML = domStr;
+		</script>
+	</body>
+</html>
